@@ -1,15 +1,12 @@
+// linklist
 
-// linklist 
+// lets make the node first
 
-// lets make the node first 
-
-
-class Node  {
-
-    constructor(data,next=null) {
-        this.data = data
-        this.next = next 
-    }
+class Node {
+  constructor(data, next = null) {
+    this.data = data;
+    this.next = next;
+  }
 }
 
 class SingleLinkList {
@@ -47,18 +44,24 @@ class SingleLinkList {
     this.head = newNode;
   }
 
-  deleteNode(data){
-    let current = this.head
-    let prev = current
-    while(current !==null){
-        if(current.data == data){
-            prev.next = current.next
-            break
-        }
-        else{
-            prev = current
-            current = current.next
-        }
+  deleteNode(data) {
+    if (!this.head) return;
+
+    if (this.head.data == data) {
+      this.head = this.head.next;
+      return;
+    }
+
+    let current = this.head;
+    let prev = null;
+    while (current !== null) {
+      if (current.data == data) {
+        prev.next = current.next;
+        break;
+      } else {
+        prev = current;
+        current = current.next;
+      }
     }
   }
 }
@@ -69,6 +72,5 @@ const link = new SingleLinkList();
 link.addData(4);
 link.addData(5);
 link.addAtBeginning(1);
-link.deleteNode()
+link.deleteNode(4);
 link.print();
-
