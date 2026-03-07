@@ -15,3 +15,5 @@ function factorial(n) {
 }
 
 console.log(factorial(5));
+
+throw new Error("this is error");
